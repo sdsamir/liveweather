@@ -1,5 +1,5 @@
-import Navigation from "./Components/Navigation";
 
+import Navigation from "./Components/Navigation";
 function App() {
 
   return (
