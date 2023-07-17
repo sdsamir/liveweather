@@ -17,10 +17,9 @@ const LocationSelection = (props) => {
 
     const buildListItem = (item) => {
         return (
-            <ListGroup.Item
-                as="li"
-                className="d-flex justify-content-between align-items-start"
-                action onClick={alertClicked}>
+            <ListGroup.Item as="li" key={item.id}
+                className="d-flex justify-content-between align-items-start mt-2"
+                action onClick={alertClicked} variant="success">
                 <div className="ms-2 me-auto">
                     <div className="fw-bold">{item.name} [{item.countryCode}]</div>
                     {item.longitude}/{item.lattitude}
@@ -52,8 +51,8 @@ const LocationSelection = (props) => {
                             :
                             <ListGroup as="ol" numbered>
                                 {
-                                    props.locationList.map((item, i) => (buildListItem(item))
-                                    )}
+                                    props.locationList.map((item, i) => (buildListItem(item)))
+                                }
                             </ListGroup>
                     }
                 </Modal.Body>
@@ -66,7 +65,5 @@ const LocationSelection = (props) => {
         </>
     );
 }
-
-
 
 export default LocationSelection;
