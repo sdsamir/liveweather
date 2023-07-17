@@ -11,15 +11,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const LocationSelection = (props) => {   
 
-    const alertClicked = (event)=>{
-        console.log(event);
+    const handleLocationClickEvent = (item)=>{
+        console.log(item);
     };
 
     const buildListItem = (item) => {
         return (
             <ListGroup.Item as="li" key={item.id}
                 className="d-flex justify-content-between align-items-start mt-2"
-                action onClick={alertClicked} variant="success">
+                action onClick={() => handleLocationClickEvent(item)} variant="success">
                 <div className="ms-2 me-auto">
                     <div className="fw-bold">{item.name} [{item.countryCode}]</div>
                     {item.longitude}/{item.lattitude}
