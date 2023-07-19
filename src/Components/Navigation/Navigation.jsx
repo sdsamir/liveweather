@@ -14,23 +14,31 @@ import LocationSelection from "../Modals/LocationSelection"
 const Navigation = (props) => {
 
   const [locationList, setLocationList] = useState([]);
-  const [showLocationModal, setShowLocationModal] = useState(false);
+  const [locationModalShowState, setLocationModalShowState] = useState(false);
   const [searchLocation, setSearchLocation] = useState("");
 
-  const handleSearchFormSubmit = async (event) => {
+  const onSearchFormSubmit = async (event) => {
     event.preventDefault();
     const locationResponse = await getLocations(event.target[0].value);
 
     setLocationList(toLocationList(locationResponse));
     setSearchLocation(event.target[0].value);
-    setShowLocationModal(true);
+    setLocationModalShowState(true);    
+  };
+
+  const onLocationSelectionChange = (item)=>{    
+    props.handleLocationSelectionChange(item);
+  };
+
+const onLocationModalShowStateChange = (state) => {
+  setLocationModalShowState(state);
   };
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="/" className="col-2">{secrets.ApplicationSettings.brandName}</Navbar.Brand>
-        <Form className="d-flex col-9" onSubmit={handleSearchFormSubmit}>
+        <Navbar.Brand href="/" className="col-2"><h2>{secrets.ApplicationSettings.brandName}</h2></Navbar.Brand>
+        <Form className="d-flex col-9" onSubmit={onSearchFormSubmit}>
           <InputGroup className="mb-6">
             <InputGroup.Text>
               <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" beatFade />
@@ -41,7 +49,12 @@ const Navigation = (props) => {
             </Button>
           </InputGroup>
         </Form>
-        <LocationSelection showLocationModal={showLocationModal} handleLocationModalState={setShowLocationModal} locationList={locationList} searchString={searchLocation} />
+        <LocationSelection 
+          locationModalShowState={locationModalShowState} 
+          handleLocationModalShowStateChange={onLocationModalShowStateChange} 
+          locationList={locationList} 
+          handleLocationSelectionChange = {onLocationSelectionChange}
+          searchString={searchLocation} />
       </Container>
     </Navbar>
   );
@@ -64,7 +77,9 @@ const toLocationList = (locationResponse) => {
       feelsLike: (item.main.feels_like - 273.15).toFixed(2),
       maxTemp: (item.main.temp_max - 273.15).toFixed(2),
       minTemp: (item.main.temp_min - 273.15).toFixed(2),
-      humidity: item.main.humidity
+      humidity: item.main.humidity,
+      weather: item.weather[0].main,
+      windSpeed: item.wind.speed,
     });
   });
   return locationList;

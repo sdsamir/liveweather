@@ -1,5 +1,3 @@
-
-import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Badge from 'react-bootstrap/Badge';
@@ -9,17 +7,22 @@ import Alert from 'react-bootstrap/Alert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-const LocationSelection = (props) => {   
+const LocationSelection = (props) => {
 
-    const handleLocationClickEvent = (item)=>{
-        console.log(item);
+    const onLocationSelectionChange = (item) => {
+        props.handleLocationSelectionChange(item);
+        props.handleLocationModalShowStateChange(false);
+    };
+
+    const onLocationModalShowStateChange = (state) => {
+        props.handleLocationModalShowStateChange(state);
     };
 
     const buildListItem = (item) => {
         return (
             <ListGroup.Item as="li" key={item.id}
                 className="d-flex justify-content-between align-items-start mt-2"
-                action onClick={() => handleLocationClickEvent(item)} variant="success">
+                action onClick={() => onLocationSelectionChange(item)} variant="success">
                 <div className="ms-2 me-auto">
                     <div className="fw-bold">{item.name} [{item.countryCode}]</div>
                     {item.longitude}/{item.lattitude}
@@ -34,19 +37,19 @@ const LocationSelection = (props) => {
 
     return (
         <>
-            <Modal
-                show={props.showLocationModal}
-                onHide={() => props.handleLocationModalState(false)}
+            <Modal size="lg"
+                show={props.locationModalShowState}
+                onHide={() => onLocationModalShowStateChange(false)}
                 backdrop="static"
-                keyboard={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>{props.searchString}</Modal.Title>
+                keyboard={false} >
+                <Modal.Header closeButton className="bg-secondary">
+                    <Modal.Title className='text-white'>{props.searchString.toUpperCase()}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body data-bs-theme="dark" className="bg-secondary">
                     {
                         props.locationList.length === 0 ?
                             <Alert variant="danger">
-                                <Alert.Heading>No location found !!</Alert.Heading>                                
+                                <Alert.Heading>No location found !!</Alert.Heading>
                             </Alert>
                             :
                             <ListGroup as="ol" numbered>
@@ -56,8 +59,8 @@ const LocationSelection = (props) => {
                             </ListGroup>
                     }
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={() => props.handleLocationModalState(false)}>
+                <Modal.Footer className="bg-secondary">
+                    <Button variant="dark" onClick={() => onLocationModalShowStateChange(false)}>
                         Close
                     </Button>
                 </Modal.Footer>
