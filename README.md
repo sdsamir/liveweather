@@ -28,3 +28,17 @@ Once all dependencies are installed, you are good to go. Just run npm start to s
 ### `next steps`
 
 I will keep updating and refactoring this application. Meanwjhile if you find some innovative way to improve the codebase, you are always welcome to create a pull request and submit it. 
+
+### `This is how it looks`
+
+#### Home
+![image](https://github.com/sdsamir/liveweather/assets/48143392/8e38221b-cc69-4b1e-94f2-c569a3282d60)
+
+
+#### Search your city
+![image](https://github.com/sdsamir/liveweather/assets/48143392/3cc13520-253c-49d0-a2cb-ebedbeebcffc)
+
+
+#### Enjoy the weather
+![image](https://github.com/sdsamir/liveweather/assets/48143392/2f84ada8-cc6f-4ec3-88a0-138b4073f48c)
+
