@@ -1,5 +1,6 @@
 # Getting Started with Live Weather App
 
+Thia is a simple application built using React Js to display weather information of the city/place user selects. 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Steps to build and run this application
