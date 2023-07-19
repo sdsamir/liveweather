@@ -1,6 +1,6 @@
 # Getting Started with Live Weather App
 
-Thia is a simple application built using React Js to display weather information of the city/place user selects. 
+This is a simple application built using React Js to display weather information of the city/place user selects. 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Steps to build and run this application
@@ -29,24 +29,30 @@ Once all dependencies are installed, you are good to go. Just run npm start to s
 
 I will keep updating and refactoring this application. Meanwjhile if you find some innovative way to improve the codebase, you are always welcome to create a pull request and submit it. 
 
+
 ### `This is how it looks`
 
-#### Home
+### Here you land
+
 ![image](https://github.com/sdsamir/liveweather/assets/48143392/8e38221b-cc69-4b1e-94f2-c569a3282d60)
 
 
-#### Search your city
+### Search your city
+
 ![image](https://github.com/sdsamir/liveweather/assets/48143392/3cc13520-253c-49d0-a2cb-ebedbeebcffc)
 
 
-#### Enjoy the sunny weather
+### Enjoy the sun in Toronto
+
 ![image](https://github.com/sdsamir/liveweather/assets/48143392/2f84ada8-cc6f-4ec3-88a0-138b4073f48c)
 
 
-#### Its rainng in Mumbai
+### Its pouring in Mumbai
+
 ![image](https://github.com/sdsamir/liveweather/assets/48143392/1af7b46b-608f-4a2d-ab50-321a339ba58a)
 
 
-#### Dutchland is covered by deep clouds
+### Dutchland is covered by deep clouds
+
 ![image](https://github.com/sdsamir/liveweather/assets/48143392/779e1af1-923c-4c15-9f13-f3883e7ebcaf)
 
