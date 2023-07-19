@@ -46,7 +46,7 @@ const WeatherDetails = (props) => {
               </Card.Body>
               <Card.Img variant="bottom" src={weatherImage} width={180} height={680} />
               <Card.Footer>
-                <h3><Clock format="dddd, MMMM Do YYYY, HH:mm:ss" interval={1000} ticking={true} /></h3>
+                <h5><Clock format="dddd, MMMM Do YYYY, HH:mm:ss" interval={1000} ticking={true} /></h5>
               </Card.Footer>
             </Card>
           </Col>
